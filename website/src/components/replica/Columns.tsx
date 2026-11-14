@@ -506,7 +506,8 @@ function nameNeed(row: Row, ctx: CellContext, scale: number) {
   if (row.suspended) need += 8 + 14 + textWidth(translate("已暂停"), scale, 11);
   return need;
 }
-const TEXT_COLUMNS = new Set(["name", "imageName", "path", "description", "company", "version", "architecture", "commandLine", "gpuEngine"]);
+// The base priority shows a class name, as wide as a translation makes it.
+const TEXT_COLUMNS = new Set(["name", "imageName", "path", "description", "company", "version", "architecture", "commandLine", "gpuEngine", "basePriority"]);
 /** The narrowest and widest a text column is made, whatever its contents (widths.rs `limits`). */
 const limits = (key: string): [number, number] =>
   key === "name"
